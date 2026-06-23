@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer in Norway</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: #f9f9f9; padding: 40px 20px; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        .desc { font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px; max-width: 1000px; }
+        .gallery { display: flex; gap: 20px; margin-bottom: 40px; }
+        .img-box { flex: 1; height: 450px; overflow: hidden; border-radius: 12px; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .img-box:hover img {transform: scale(1.05); cursor: pointer;}
+        .back-btn { display: inline-block; padding: 10px 20px; background: #333; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Autumn</h1>
+        <p class="desc">
+            Witness the amazing transformation of nature into brilliant red, orange, and yellow colours. Sample the culinary delights of the season, vibrant city life, and hiking in the mountains with the best views. Traveling off-season brings plenty of benefits: more space, fewer queues, and a more personal welcome!
+
+        </p>
+
+        <div class="gallery">
+            <div class="img-box"><img src="autum1.jpg" alt="Autum 1"></div>
+            <div class="img-box"><img src="autumn2.jpg" alt="Autumn 2"></div>
+            <div class="img-box"><img src="autumn3.jpg" alt="Autumn 3"></div>
+        </div>
+
+        <a href="Attraction.html" class="back-btn">← Back</a>
+    </div>
+
+</body>
+</html>
