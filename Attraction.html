@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Places to Go</title>
     <link rel="stylesheet" href="attraction.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 15px !important;
+  }
+
+  header h1, .logo {
+    font-size: clamp(14px, 3vw, 22px) !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+
+  nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: clamp(4px, 1.5vw, 15px) !important; 
+    align-items: center !important;
+  }
+
+  nav a {
+    white-space: nowrap !important;
+    font-size: clamp(10px, 2vw, 16px) !important; 
+    text-decoration: none !important;
+    padding: 2px 4px !important;
+  }
+</style>
     <style>
         * {
     margin: 0;
@@ -17,14 +48,15 @@ body {
     </style>
 </head>
 <body>
-    <header style="background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 20px 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000;">
+    <header style="background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 20px 40px; font-family: 'Segoe UI',
+     Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000;">
     
     <div style="font-size: 1.5rem; font-weight: bold; color: #111111; letter-spacing: 1px;">
         VISIT NORWAY
     </div>
 
     <nav style="display: flex; gap: 25px; margin: 0; padding: 0; list-style: none;">
-        <a href="index.html" style="color: #333333; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s ease;">Home</a>
+        <a href="Norway.html" style="color: #333333; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s ease;">Home</a>
         <a href="Attraction.html" style="color: #333333; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s ease;">Attractions</a>
         <a href="food.html" style="color: #333333; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s ease;">Foods</a>
         <a href="hotels.html" style="color: #333333; text-decoration: none; font-size: 1rem; font-weight: 500; transition: color 0.3s ease;">Hotels</a>
@@ -32,6 +64,21 @@ body {
     </nav>
 
 </header>
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group input-group-lg shadow-sm">
+        <span class="input-group-text bg-white border-end-0">🔍</span>
+        <input 
+          type="search" 
+          id="attractionSearch" 
+          class="form-control border-start-0" 
+          placeholder="Search attractions (e.g. Oslo, Fjords)..."
+        >
+      </div>
+    </div>
+  </div>
+</div>
     <main>
     <section class="travel-section">
         
@@ -41,7 +88,7 @@ body {
 
     <div class="card-container">
       <div class="travel-card">
-                <img src="Nor.avif" alt="Norwegian">
+                <img src="Nor (1).avif" alt="Norwegian">
                 <h3>Norwegian Scenic Routes</h3>
                 <p>Norway’s wildest nature through amazing roads and modern architecture. It’s the perfect road trip!.</p>
             </div>
@@ -191,5 +238,35 @@ body {
     <div style="text-align: center; color: #777777; font-size: 0.85rem; max-width: 1200px; margin: 0 auto;">
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+  $(document).ready(function() {
+    $('#attractionSearch').on('keyup input', function() {
+      var value = $(this).val().toLowerCase().trim();
+      var matchCount = 0;
+
+      $('.travel-card').filter(function() {
+        var cardText = $(this).text().toLowerCase();
+        var isMatch = cardText.indexOf(value) > -1;
+
+        $(this).toggle(isMatch);
+
+        if (isMatch) {
+          matchCount++;
+        }
+      });
+
+      if (matchCount === 0) {
+        $('#noResults').removeClass('d-none');
+      } else {
+        $('#noResults').addClass('d-none');
+      }
+    });
+  });
+</script>
 </body>
 </html>
